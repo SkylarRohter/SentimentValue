@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @return Either positive or negative adjective
  * @see getNegative
  * Test
+ * Test 2
  */
 public class GetAdjective {
 
