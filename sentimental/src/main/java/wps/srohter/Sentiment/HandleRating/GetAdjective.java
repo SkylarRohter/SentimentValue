@@ -10,6 +10,7 @@ import java.util.Scanner;
  * @author Skylar Rohter
  * @return Either positive or negative adjective
  * @see getNegative
+ * Test
  */
 public class GetAdjective {
 
