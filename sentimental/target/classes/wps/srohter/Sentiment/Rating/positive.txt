@@ -1,0 +1,17 @@
+amazing 1.5
+awesome 1.0
+excellent 2.0
+fabulous 2.0
+fantastic 1.5
+favorable 0.5
+fortuitous 1.5
+incredible 2.5
+outstanding 3.0
+perfect 3.0
+remarkable 2.5
+spectacular 2.5
+splendid 2.0
+stellar 1.5
+stupendous 1.5
+super 1.0
+wondrous 1.5
