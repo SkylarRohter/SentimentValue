@@ -41,7 +41,7 @@ public class RateComment extends SortComment {
             fnfe.printStackTrace();
         }
     }
-
+// Testing testing 1 2 3
     private double ratePositives(double average) {
         double returnable;
         if (average > 0 && average < 0.05) {// 1
