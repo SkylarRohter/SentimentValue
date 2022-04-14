@@ -15,10 +15,17 @@ public class RateComment extends SortComment {
     /**
      * @return Double of rated value.
      */
-    public void rate() {
+    public void rate()throws FileNotFoundException {
         SortValues valueSorter = new SortValues();
         SortWords wordSorter = new SortWords();
         SortComment commentSorter = new SortComment();
+        GetAdjective adj = new GetAdjective();
+
+        // Sorting done by GetAddjective class
+        adj.sortNegative();
+        adj.sortPositve();
+        //
+
         double sum = 0, returnable = 0;
         try {
             valueSorter.sortSentiment();
@@ -37,10 +44,10 @@ public class RateComment extends SortComment {
             // Positives
             if (average > 0) {
                 returnable = ratePositives(average);
-                System.out.println(getPosWord(returnable));
+                System.out.println(getPosWord(returnable,adj));
             } else if (average < 0) {// Negatives
                 returnable = rateNegatives(average);
-                System.out.println(getNegativeWord(returnable));
+                System.out.println(getNegativeWord(returnable,adj));
             }
             // Neutrals
             else if (average == 0) {
@@ -54,8 +61,7 @@ public class RateComment extends SortComment {
         }
     }
 
-    private String getPosWord(double input) {
-        GetAdjective adj = new GetAdjective();
+    private String getPosWord(double input, GetAdjective adj) {
         String finalWord = "Hello";
         for (int i = 0; i < adj.pValues.size(); i++) {
             if (adj.pValues.get(i).equals(input)) {
@@ -65,9 +71,9 @@ public class RateComment extends SortComment {
         return finalWord;
     }
 
-    private String getNegativeWord(double input) {
-        GetAdjective adj = new GetAdjective();
+    private String getNegativeWord(double input, GetAdjective adj) {
         String finalWord = "Okay";
+        System.out.println(adj.nValues);
         for (int i = 0; i < adj.nValues.size(); i++) {
             if (adj.nValues.get(i).equals(input)) {
                 finalWord = adj.negatives.get(i);

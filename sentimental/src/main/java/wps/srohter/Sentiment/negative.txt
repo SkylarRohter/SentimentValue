@@ -7,7 +7,6 @@ callous 1.0
 critical 1.0
 cynical 2.0
 dishonest 1.5
-distant 2.0
 envious 2.5
 greedy 1.5
 guarded 1.0
