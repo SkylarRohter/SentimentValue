@@ -13,9 +13,12 @@ import twitter4j.conf.ConfigurationBuilder;
 
 /**
  * @author Skylar Rohter
+ * @return Random twitter Comment
+ * @since Creation and usage of Twitter4j
+ * 
  */
 public class GetComment {
-    public static ArrayList<String> getTweets(String topic) {
+    public ArrayList<String> getTweets(String topic) {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("your key")

@@ -10,12 +10,14 @@ import java.util.Scanner;
  * @author Skylar Rohter
  * @return Either positive or negative adjective
  * @see getNegative
+ * @see Method that is returned from the args[1] array;
+ * ^ build path configuration.
  */
 public class GetAdjective {
 
     public String getPositve() throws FileNotFoundException {
         Scanner pos = new Scanner(new File(
-                "/Users/skylarrohter/Documents/sentimental/src/main/java/wps/srohter/Sentiment/Rating/positive.txt"));
+                "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\Sentiment\\positive.txt"));
         ArrayList<String> positives = new ArrayList<>();
         ArrayList<String> pValues = new ArrayList<>();
         Random rnd = new Random();
@@ -35,7 +37,7 @@ public class GetAdjective {
 
     public String getNegative() throws FileNotFoundException {
         Scanner neg = new Scanner(new File(
-                "/Users/skylarrohter/Documents/sentimental/src/main/java/wps/srohter/Sentiment/Rating/negative.txt"));
+                "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\negative.txt"));
         ArrayList<String> negatives = new ArrayList<>();
         ArrayList<String> nValues = new ArrayList<>();
         Random rnd = new Random();
