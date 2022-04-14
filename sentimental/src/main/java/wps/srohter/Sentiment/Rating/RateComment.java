@@ -11,11 +11,14 @@ import wps.srohter.Sentiment.Sorting.SortWords;
  * @return Rated Comment
  */
 public class RateComment extends SortComment {
-    public void rate() {
+    /**
+     * @return Double of rated value.
+     */
+    public double rate() {
         SortValues valueSorter = new SortValues();
         SortWords wordSorter = new SortWords();
         SortComment commentSorter = new SortComment();
-        double sum = 0;
+        double sum = 0, returnable = 0;
         try {
             valueSorter.sortSentiment();
             wordSorter.sortWords();
@@ -30,16 +33,23 @@ public class RateComment extends SortComment {
                 }
             }
             double average = sum / CommentArray.size();
-            // Negatives
+            // Positives
+            if (average > 0) {
+                returnable = ratePositives(average);
+            } else if (average < 0) {// Negatives
+                returnable = rateNegatives(average);
+            }
             // Neutrals
-            if(average == 0) {
+            else if (average == 0) {
                 System.out.println("Neutral");
             } else {
-                return;
+                returnable = 0;
             }
+            System.out.println(returnable);
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
+        return returnable;
     }
 
     private double ratePositives(double average) {
@@ -65,17 +75,17 @@ public class RateComment extends SortComment {
     private double rateNegatives(double average) {
         double returnable;
         if (average < 0 && average > -0.05) {
-            returnable = 0.5;
+            returnable = -0.5;
         } else if (average < -0.051 && average > -0.1) {
-            returnable = 1.0;
+            returnable = -1.0;
         } else if (average < -0.11 && average > -0.2) {
-            returnable = 1.5;
+            returnable = -1.5;
         } else if (average < -0.21 && average > -0.5) {
-            returnable = 2.0;
+            returnable = -2.0;
         } else if (average < -0.51 && average > -1) {
-            returnable = 2.5;
+            returnable = -2.5;
         } else if (average < -1.1 && average > -3) {
-            returnable = 3.0;
+            returnable = -3.0;
         } else {
             returnable = 0;
         }

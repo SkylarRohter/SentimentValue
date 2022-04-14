@@ -9,9 +9,9 @@ import java.util.Scanner;
  */
 public class SortValues {
     public static File WordsFile = new File(
-            "/Users/skylarrohter/Documents/sentimental/src/main/java/wps/srohter/Sentiment/words.txt");
+            "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\Sentiment\\words.txt");
     public static File CommentFile = new File(
-            "/Users/skylarrohter/Documents/sentimental/src/main/java/wps/srohter/Sentiment/comment.txt");
+            "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\Sentiment\\comment.txt");
     public double[] Values = new double[6279];
 
     public void sortSentiment() throws FileNotFoundException {
