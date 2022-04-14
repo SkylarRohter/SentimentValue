@@ -2,6 +2,7 @@ package wps.srohter.Sentiment.Rating;
 
 import java.io.FileNotFoundException;
 
+import wps.srohter.Sentiment.HandleRating.GetAdjective;
 import wps.srohter.Sentiment.Sorting.SortComment;
 import wps.srohter.Sentiment.Sorting.SortValues;
 import wps.srohter.Sentiment.Sorting.SortWords;
@@ -14,7 +15,7 @@ public class RateComment extends SortComment {
     /**
      * @return Double of rated value.
      */
-    public double rate() {
+    public void rate() {
         SortValues valueSorter = new SortValues();
         SortWords wordSorter = new SortWords();
         SortComment commentSorter = new SortComment();
@@ -36,8 +37,10 @@ public class RateComment extends SortComment {
             // Positives
             if (average > 0) {
                 returnable = ratePositives(average);
+                System.out.println(getPosWord(returnable));
             } else if (average < 0) {// Negatives
                 returnable = rateNegatives(average);
+                System.out.println(getNegativeWord(returnable));
             }
             // Neutrals
             else if (average == 0) {
@@ -49,9 +52,30 @@ public class RateComment extends SortComment {
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
-        return returnable;
     }
-// Testing testing 1 2 3
+
+    private String getPosWord(double input) {
+        GetAdjective adj = new GetAdjective();
+        String finalWord = "Hello";
+        for (int i = 0; i < adj.pValues.size(); i++) {
+            if (adj.pValues.get(i).equals(input)) {
+                finalWord = adj.positives.get(i);
+            }
+        }
+        return finalWord;
+    }
+
+    private String getNegativeWord(double input) {
+        GetAdjective adj = new GetAdjective();
+        String finalWord = "Okay";
+        for (int i = 0; i < adj.nValues.size(); i++) {
+            if (adj.nValues.get(i).equals(input)) {
+                finalWord = adj.negatives.get(i);
+            }
+        }
+        return finalWord;
+    }
+
     private double ratePositives(double average) {
         double returnable;
         if (average > 0 && average < 0.05) {// 1

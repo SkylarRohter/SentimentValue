@@ -10,16 +10,15 @@ import java.util.Scanner;
  * @author Skylar Rohter
  * @return Either positive or negative adjective
  * @see getNegative
- * @see Method that is returned from the args[1] array;
- * ^ build path configuration.
  */
 public class GetAdjective {
-
+    public ArrayList<String> positives = new ArrayList<>();
+    public ArrayList<Double> pValues = new ArrayList<>();
+    public ArrayList<String> negatives = new ArrayList<>();
+    public ArrayList<Double> nValues = new ArrayList<>();
     public String getPositve() throws FileNotFoundException {
         Scanner pos = new Scanner(new File(
                 "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\Sentiment\\positive.txt"));
-        ArrayList<String> positives = new ArrayList<>();
-        ArrayList<String> pValues = new ArrayList<>();
         Random rnd = new Random();
         String returnable, KpreSubString;
         while (pos.hasNext()) {
@@ -29,7 +28,8 @@ public class GetAdjective {
             positives.add(key);
 
             String value = KpreSubString.substring(KpreSubString.indexOf(" "), KpreSubString.length());
-            pValues.add(value);
+            double addValue = Double.parseDouble(value);
+            pValues.add(addValue);
         }
         returnable = positives.get(rnd.nextInt(positives.size()));
         return returnable;
@@ -37,9 +37,7 @@ public class GetAdjective {
 
     public String getNegative() throws FileNotFoundException {
         Scanner neg = new Scanner(new File(
-                "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\negative.txt"));
-        ArrayList<String> negatives = new ArrayList<>();
-        ArrayList<String> nValues = new ArrayList<>();
+                "C:\\Users\\SkylarRohter\\Documents\\SentimentValue\\sentimental\\src\\main\\java\\wps\\srohter\\Sentiment\\negative.txt"));
         Random rnd = new Random();
         String returnable, KpreSubString;
         while (neg.hasNext()) {
@@ -49,7 +47,8 @@ public class GetAdjective {
             negatives.add(key);
 
             String value = KpreSubString.substring(KpreSubString.indexOf(" "), KpreSubString.length());
-            nValues.add(value);
+            double addValue = Double.parseDouble(value);
+            nValues.add(addValue);
         }
         returnable = negatives.get(rnd.nextInt(negatives.size()));
         return returnable;
