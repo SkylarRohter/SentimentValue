@@ -97,7 +97,7 @@ public class RateComment extends SortComment {
         finalWord = words.get(random.nextInt(indexes.size()));
         return finalWord;
     }
-
+    //Change
     private double ratePositives(double average) {
         double returnable;
         if (average > 0 && average < 0.05) {// 1
