@@ -1,6 +1,8 @@
 package wps.srohter.Sentiment.Rating;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Random;
 
 import wps.srohter.Sentiment.HandleRating.GetAdjective;
 import wps.srohter.Sentiment.Sorting.SortComment;
@@ -55,30 +57,44 @@ public class RateComment extends SortComment {
             } else {
                 returnable = 0;
             }
-            System.out.println(returnable);
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
     }
 
     private String getPosWord(double input, GetAdjective adj) {
-        String finalWord = "Hello";
+        String finalWord = null;
+        ArrayList<Integer> indexes = new ArrayList<>();
+        ArrayList<String> words = new ArrayList<>();
         for (int i = 0; i < adj.pValues.size(); i++) {
             if (adj.pValues.get(i).equals(input)) {
-                finalWord = adj.positives.get(i);
+                indexes.add(i);
             }
         }
+        for(int i = 0;i < indexes.size();i++) {
+            String addable = adj.positives.get(indexes.get(i));
+            words.add(addable);
+        }
+        Random random = new Random();
+        finalWord = words.get(random.nextInt(indexes.size()));
         return finalWord;
     }
 
     private String getNegativeWord(double input, GetAdjective adj) {
-        String finalWord = "Okay";
-        System.out.println(adj.nValues);
+        String finalWord = null;
+        ArrayList<Integer> indexes = new ArrayList<>();
+        ArrayList<String> words = new ArrayList<>();
         for (int i = 0; i < adj.nValues.size(); i++) {
             if (adj.nValues.get(i).equals(input)) {
-                finalWord = adj.negatives.get(i);
+                indexes.add(i);
             }
         }
+        for(int i = 0;i < indexes.size();i++) {
+            String addable = adj.negatives.get(indexes.get(i));
+            words.add(addable);
+        }
+        Random random = new Random();
+        finalWord = words.get(random.nextInt(indexes.size()));
         return finalWord;
     }
 

@@ -10,10 +10,10 @@ import wps.srohter.Sentiment.Rating.RateComment;
 public class SentimentMain {
     public static void main(String[] args) {
         RateComment commentRater = new RateComment();
-        try{
-        commentRater.rate();
-        } catch(FileNotFoundException fnfe){
+        try {
+            commentRater.rate();
+        } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
     }
-}   
+}

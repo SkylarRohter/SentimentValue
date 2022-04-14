@@ -22,7 +22,7 @@ public class GetAdjective {
         while (pos.hasNext()) {
             KpreSubString = pos.nextLine();
 
-            String key = KpreSubString.substring(0, KpreSubString.indexOf(" ") + 1);
+            String key = KpreSubString.substring(0, KpreSubString.indexOf(" "));
             positives.add(key);
 
             String value = KpreSubString.substring(KpreSubString.indexOf(" "), KpreSubString.length());
@@ -38,7 +38,7 @@ public class GetAdjective {
         while (neg.hasNext()) {
             KpreSubString = neg.nextLine();
 
-            String key = KpreSubString.substring(0, KpreSubString.indexOf(" ") + 1);
+            String key = KpreSubString.substring(0, KpreSubString.indexOf(" "));
             negatives.add(key);
 
             String value = KpreSubString.substring(KpreSubString.indexOf(" "), KpreSubString.length());

@@ -9,7 +9,7 @@ cynical 2.0
 dishonest 1.5
 envious 2.5
 greedy 1.5
-guarded 1.0
+guarded 2.0
 hostile 2.5
 indifferent 0.5
 intolerant 1.5
