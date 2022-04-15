@@ -49,7 +49,7 @@ public class RateComment extends SortComment {
                 System.out.println(getPosWord(returnable,adj));
             } else if (average < 0) {// Negatives
                 returnable = rateNegatives(average);
-                System.out.println(getNegativeWord(returnable,adj));
+                System.out.println("The comment you entered could be described with a "+getNegativeWord(returnable,adj)+" connotation.");
             }
             // Neutrals
             else if (average == 0) {
