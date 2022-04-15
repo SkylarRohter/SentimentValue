@@ -61,7 +61,7 @@ public class RateComment extends SortComment {
             fnfe.printStackTrace();
         }
     }
-
+    //this is a test for a commit
     private String getPosWord(double input, GetAdjective adj) {
         String finalWord = null;
         ArrayList<Integer> indexes = new ArrayList<>();
