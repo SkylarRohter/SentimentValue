@@ -68,7 +68,7 @@ public class RateComment extends SortComment {
         ArrayList<String> words = new ArrayList<>();
         for (int i = 0; i < adj.pValues.size(); i++) {
             if (adj.pValues.get(i).equals(input)) {
-                indexes.add(i);
+                indexes.add(i); 
             }
         }
         for(int i = 0;i < indexes.size();i++) {

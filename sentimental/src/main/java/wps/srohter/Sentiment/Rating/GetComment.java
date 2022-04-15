@@ -28,7 +28,6 @@ public class GetComment {
                         "your key")
                 .setOAuthAccessTokenSecret(
                         "your key");
-
         Twitter twitter = new TwitterFactory().getInstance();
         ArrayList<String> tweetList = new ArrayList<String>();
         try {
