@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 /**
  * @author Skylar Rohter
- * Morgan is standing behind me rn.
  */
 public class SortComment {
     public static ArrayList<String> CommentArray = new ArrayList<>();
